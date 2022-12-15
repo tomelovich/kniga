@@ -83,21 +83,73 @@ function saveCart() {
 
 function showMiniCart() {
     //показываю мини корзину
-    var out="";
-    for (var key in cart) {
-        out += key +' --- '+ cart[key]+'<br>';
+  
+  $.post(
+    "admin/core.php",           
+    { 
+      "action" : "loadBooks"      
+    },
+    function(data) {
+      var books = JSON.parse(data); 
+      var out = '';
+      let price;
+      let total = 0;
+      for (var id in cart) {   
+        price = cart[id] * books[id].price;   
+        out += '<div class="mini-cart-item">'
+          out += `<img src="${books[id].img}">`;
+          out += '<div class="mini-cart-item-description">'
+            out += `<h4><a href="books.html#${id}">${books[id].name}</a></h4>`;
+            out += `<p>${price} руб.</p>`;
+            out += '<div class="amount">'
+              out += `<button data-id="${id}" class="minus-books">-</button>`; 
+              out += `<p>${cart[id]}</p>`;
+              out += `<button data-id="${id}" class="plus-books">+</button>`;
+            out += '</div>';
+            out += `<button data-id="${id}" class="del-books">Удалить</button>`;
+          out += '</div>'
+        out += '</div>'
+        total += price;
+      }
+      
+      out += '<div class="mini-cart-total">'
+          out += `<p>Итого: <b>${total} руб.</b></p>`;
+          out += `<button class="checkout">Перейти к оформлению</button>`;
+        out += '</div>'
+      $('.mini-cart').html(out);
+      $('.del-books').on('click', delBooks);
+      $('.plus-books').on('click', addToCart);
+      $('.minus-books').on('click', minusBooks);
+    });
+  }
+  function delBooks() {
+  //удаляем товар из корзины
+  var id = $(this).attr('data-id');
+  delete cart[id];
+  showMiniCart();
+    saveCart();
+  }
+  
+  function minusBooks() {
+  var id = $(this).attr('data-id');
+    if (cart[id]==1) {
+      delete cart[id]; //если в корзине нет товара - делаем равным 1
     }
-    $('.mini-cart').html(out);
-}
-
-function loadCart() {
+    else {
+        cart[id]--; //если такой товар есть - увеличиваю на единицу
+    }
+    showMiniCart();
+    saveCart();
+  }    
+  function loadCart() {
     //проверяю есть ли в localStorage запись cart
     if (localStorage.getItem('cart')) {
         // если есть - расширфровываю и записываю в переменную cart
         cart = JSON.parse(localStorage.getItem('cart'));
         showMiniCart();
     }
-}
+  }
+  
 
 $(document).ready(function () {
     init();
