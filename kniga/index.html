@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>КнигаБай</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <a href="/index.html"><img src="./img/header/логотип.svg" class="logo" alt="logo"></a>
+            <div class="nav-link">
+                <a href="./catalog.html">Каталог</a>
+                <a href="#delivery">Оплата и доставка</a>
+                <a href="#info">О магазине</a>
+            </div>
+            
+            <div class="box">
+                <div class="container-4">
+                    <input type="search" id="search" placeholder="Поиск...">
+                    <button id="icon" class="icon">
+                        &#10140;
+                    </button>
+                </div>
+            </div>
+            <a href="./favorites.html" class="icons"><img src="./img/header/ponrav.png" alt="like"></a>
+            <a href="#" class="icons"><img src="./img/header/user.png" alt="user profile"></a>
+            <a href="./cart.html" class="icons"><img src="./img/header/korzina.png" alt="basket"></a>
+        </nav>
+    </header>
+    <main>
+        <blockquote>
+            <p class="text">Любить чтение — это обменивать часы скуки, неизбежные в жизни, на часы большого наслаждения.</p>
+            <footer>— <cite>Цицерон</cite></footer>
+        </blockquote>
+        <section class="new">
+            <h1>Новинки</h1>
+            <div class="slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        
+                        
+                    </div>
+                  </div>
+            </div>
+        </section>
+        <section class="popular">
+            <h1>Популярное</h1>
+            <div class="slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="about_us">
+            <a href="" id="info"></a>
+            <h1>О магазине</h1>
+            <p><span>КнигаБай</span> - один из крупнейших интернет-магазинов в области продажи литературы. Вас 
+                ждёт огромный асосортимент (более 300 различных книг) художественной, научной, учебной и других 
+                видов литературы.
+            </p>
+            <p>Свзяться с нами:</p>
+            <div class="social-networks">
+                <a href="#"><img src="./img/main/twitter.svg" alt="twitter"></a>
+                <a href="#"><img src="./img/main/facebook.svg" alt="facebook"></a>
+                <a href="#"><img src="./img/main/telegram.svg" alt="telegram"></a>
+                <div class="telephone">
+                    <img src="./img/main/telephone.svg" alt="">
+                    <a href="tel:+375255005622">+375 25 500 5622</a>
+                </div>
+                
+            </div>
+        </section>
+        <section class="payment-delivery">
+            <a href="" id="delivery"></a>
+            <h1>Оплата и доставка</h1>
+            <div class="shipping-methods">
+                <ul>
+                    <li><a href="#!" class="pickup-link" onclick="openbox('pickup'); return false">Самовывоз</a></li>
+                    <li><a href="#!" class="courier-delivery-link" onclick="openbox('courier-delivery'); return false">Доставка курьером</a></li>
+                    <li><a href="#!" class="europost-link" onclick="openbox('europost'); return false">Доставка "Европочта"</a></li>
+                </ul>
+                <div class="open-block" id="pickup">
+                    <p class="type-delivery">Самовывоз</p>
+                    <p>Получите заказ лично на пункте выдачи, по адресу <span>г.Гродно ул. Курчатова д.4</span>. 
+                        Дополнительной оплаты за доставку не требуется. Вам только необходимо знать номер своего заказа.
+                    </p>
+                </div>
+                <div class="open-block" id="courier-delivery">
+                    <p class="type-delivery">Доставка курьером</p>
+                    <p>Стоимость доставки в пределах Гродно - 2 руб.</p>
+                    <p>Стоимость доставки по Беларуси - 6 руб.</p>
+                </div>
+                <div class="open-block" id="europost">
+                    <p class="type-delivery">Доставка "Европочтой"</p>
+                    <p>Доставка 1 до 3 дней после готовности заказа. Большинство пунктов выдачи работает без выходных 
+                        с 9.00 до 21.00
+                    </p>
+                    <p>Стоимость доставки расчитывается автоматически при оформлении заказа в соответствии 
+                        <a href="https://evropochta.by/services/tariffs_ur/">ТАРИФАМИ ЕВРОПОЧТЫ</a> Срок доставки: от 
+                        1 до 3 дней. Вы получите уведомление об отправке и трек отслеживания заказа.
+                    </p>
+                </div>
+            </div>
+            <div class="payment">
+                <p>Произвести оплату можно следующими способами:</p>
+                <div class="payment-methods">
+                    <div class="cash-courier">
+                        <p>Наличными курьеру</p>
+                        <img src="./img/main/delivery.jpg" alt="payment-delivery">
+                        <p>Оплата осуществляется белорусскими рублями. Любые другие валюты не принимаются.</p>
+                    </div>
+                    <div class="card-payment">
+                        <p>Оплата картой</p>
+                        <img src="./img/main/card.jpg" alt="card-payment">
+                        <p>Мы принимаем платежи по следующим банковским картам: Visa, Visa Electron, MasterCard, Белкарт.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer  class="footer">
+        <div class="address">
+            <a class="phone" href="tel:+375255005622">+375-25-500-5622</a>
+            <p>Гродно, Курчатова, 4</p>
+            <p>tomelovichs@gmail.com</p>
+        </div>
+        <p>© 2022 – 2023 ООО «КнигаБай» Все права защищены.</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/66a7a19a35.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
