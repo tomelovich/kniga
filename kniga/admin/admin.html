@@ -1,22 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Редактировать каталог</title>
+    <link rel="stylesheet" href="./css/admin.css">
 </head>
 <body>
-    <div class="books-out"></div>
-    <h2>Товар</h2>
-    <p>Имя: <input type="text" id="gname"></p>
-    <p>Автор: <input type="text" id="gauthor"></p>
-    <p>Стоимость: <input type="text" id="gprice"></p>
-    <p>Описание: <textarea id="gdescr"></textarea></p>
-    <p>Изображение: <input type="text" id="gimg"></p>
-    <p>Порядок: <input type="text" id="gorder"></p>
-    <p>Тип: <input type="text" id="gtype"></p>
-    <input type="hidden" id="gid">
-    <button class="add-to-db">Обновить</button>
-    <!-- <button class="delete-from-db">Удалить</button> -->
+    <header>
+        <nav class="nav">
+            <a href="/index.html"><img src="/img/header/логотип.svg" class="logo" alt="logo"></a>
+            <div class="nav-link">
+                <a href="/catalog.html">Каталог</a>
+                <a href="#delivery">Оплата и доставка</a>
+                <a href="#info">О магазине</a>
+            </div>
+            
+            <div class="box">
+                <div class="container-4">
+                    <input type="search" id="search" placeholder="Поиск...">
+                    <button id="icon" class="icon">
+                        &#10140;
+                    </button>
+                </div>
+            </div>
+            <a href="/favorites.html" class="icons"><img src="/img/header/ponrav.png" alt="like"></a>
+            <a href="#" class="icons"><img src="/img/header/user.png" alt="user profile"></a>
+            <a href="/cart.html" class="icons"><img src="/img/header/korzina.png" alt="basket"></a>
+        </nav>
+    </header>
+    <main>
+        <span>Выбрать товар:</span>
+        
+        <div class="books-out">
+
+        </div>
+        <h2>Описание товара</h2>
+        <p>Имя: <input type="text" id="gname"></p>
+        <p>Автор: <input type="text" id="gauthor"></p>
+        <p>Стоимость: <input type="text" id="gprice"></p>
+        <p class="description">Описание:</p>
+        <textarea cols="100" rows="10" spellcheck="true" id="gdescr"></textarea>
+        <p>Изображение: <input type="text" id="gimg" class="gimg"></p>
+        <p>Порядок: <input type="text" id="gorder"></p>
+        <p>Тип:
+            <select name="select" id="gtype" size="1">
+                <option>book</option>
+                <option>comics</option>
+                <option>manga</option>
+           </select>
+        </p>
+        <input type="hidden" id="gid">
+        <button class="add-to-db">Обновить / Добавить</button>
+        <button class="delete-from-db">Удалить товар</button>
+    </main>
+    
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/admin.js"></script>
 </body>

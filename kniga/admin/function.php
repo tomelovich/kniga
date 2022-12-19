@@ -124,9 +124,9 @@ function updateBooks(){
     $type = $_POST['gtype'];
     $sql = "UPDATE books SET name = '$name', author = '$author', price = '$price', ord = '$ord', description = '$descr', img = '$img', type = '$type' WHERE id='$id' ";
     if ($conn->query($sql) === TRUE) {
-    echo "1";
+        echo "1";
     } else {
-    echo "Ошибка обновления записи: " . $conn->error;
+        echo "Ошибка обновления записи: " . $conn->error;
     }
     mysqli_close($conn);
     // writeJSON();
@@ -151,20 +151,20 @@ function newBooks(){
     mysqli_close($conn);
     // writeJSON();
 }
-// function deleteBooks() {
-//     $conn = connect();
-//     $id = $_POST['id'];
+function deleteBooks() {
+    $conn = connect();
+    $id = $_POST['gid'];
 
-//     $sql = "DELETE FROM books WHERE id='$id' ";
+    $sql = "DELETE FROM books WHERE id = '$id' ";
 
-//     if ($conn->query($sql) === TRUE) {
-//         echo "1";
-//     } else {
-//         echo "Error deleting record: " . $conn->error;
-//     }
+    if ($conn->query($sql) === TRUE) {
+        echo "1";
+    } else {
+        echo "Ошибка удаления товара: " . $conn->error;
+    }
 
-//     $conn->close();
-// }
+    mysqli_close($conn);
+}
 
 function loadBooks() {
     $conn = connect();

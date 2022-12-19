@@ -16,6 +16,33 @@ function showBooks(data) {
         out +=`<option data-id="${id}">${data[id].name}</option>`;
     }
     out +='</select>';
+    
+    var startText = '/img/obl/';
+    var gimg = $('.gimg');
+
+    gimg.focus(function(){
+		if(gimg.val() === '') {
+    	gimg.val('').val(startText);
+    }
+    gimg.blur(function(){
+        if (gimg.val() === startText){
+            gimg.val('');
+        }
+    });
+    gimg.on('input change', function(){
+        console.log(gimg.val());
+      var oldValue = gimg.val();
+      var newValue = startText;
+      if (oldValue.length > startText.length) {
+        for (var i = startText.length; i <= oldValue.length; i++) {
+            if (typeof oldValue[i] !== 'undefined') {
+              newValue = newValue + oldValue[i];
+          }
+        }
+      }
+      gimg.val(newValue);
+    });
+});
     $('.books-out').html(out);
     $('.books-out select').on('change', selectBooks);
 }
@@ -38,33 +65,42 @@ function selectBooks(){
             $('#gimg').val(data.img);
             $('#gtype').val(data.type);
             $('#gid').val(data.id);
+            if (data == 1) {
+                alert("Информация обновлена")
+                init();
+            }
+            else {
+                console.log(data);
+            }
+           
         }
     )
 }
-// function deleteBooks() {
-//     var id = $('#gid').val();
-//     if (id!="") {
-//         $.post(
-//             "core.php",
-//             {
-//                 "action" : "deleteBoods",
-//                 "id" : id
-//             },
-//             function (data) {
-//                 if (data==1) {
-//                     alert('Запись удалена');
-//                     init();
-//                 }
-//                 else {
-//                     console.log(data);
-//                 }
-//             }
-//         )
-//     }
-//     else {
-//         console.log(data);
-//     }
-// }
+function deleteBooks() {
+    
+    var id = $('#gid').val();
+    if (id!="") {
+        $.post(
+            "core.php",
+            {
+                "action" : "deleteBoods",
+                "id" : id
+            },
+            function (data) {
+                if (data==1) {
+                    alert('Товар удалён');
+                    init();
+                }
+                else {
+                    console.log(data);
+                }
+            }
+        )
+    }
+    else {
+        console.log(data);
+    }
+}
 function saveToDb(){
     var id = $('#gid').val();
     if (id!=""){
@@ -84,7 +120,7 @@ function saveToDb(){
             },
             function(data){
                 if (data == 1) {
-                    alert('Запись добавлена')
+                    alert('Информация обновлена')
                     init();
                 }
                 else {
@@ -124,5 +160,7 @@ function saveToDb(){
 
 $(document).ready(function () {
    init();
-   $('.add-to-db').on('click',saveToDb);
+   $('.add-to-db').on('click', saveToDb);
+   $('.delete-from-db').on('click', deleteBooks);
+   
 });

@@ -1,0 +1,134 @@
+
+@import '/css/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.nav {
+    position: fixed;
+    top:0;
+    background-color: white;
+    z-index: 100;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    text-align: justify;
+    padding: 0 40px 10px 40px;
+    font-weight: 300;
+  }
+  .nav a {
+    color: black;
+    font-weight: bolder;
+  }
+  .logo {
+    width: 80px;
+    margin-top: 30px;
+  }
+  .nav-link a {
+    margin-left: 50px;
+  }
+  .nav-link a:hover {
+    /* border-bottom: 2px solid #182450;   */
+    opacity: 0.9;
+    color: #182450;
+  }
+  /* Search*/
+  .container-4{
+    border-radius:10px;
+    overflow: hidden;
+    width: 300px;
+    height: 30px;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: 1px solid #182450;
+  }
+  .container-4 input#search{
+    
+    width: 300px;
+    height: 30px;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #182450;
+    padding-left: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .container-4 button.icon{
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background: #232833;
+    height: 30px;
+    width: 50px;
+    color: #4f5b66;
+    opacity: 0;
+    font-size: 10pt;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+  }
+  .container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+    outline: none;
+    opacity: 1;
+    margin-left: -50px;
+  }
+  
+  
+  .icons img {
+    width: 30px;
+  }
+  main{
+    margin: 150px 10px 0 10px;
+    
+  }
+  main span {
+    font-size: 35px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    color: #182450;
+  }
+  .books-out {
+    margin: 20px 0;
+  }
+  h2 {
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    color: #182450;
+  }
+  #gname, #gauthor, #gauthor, #gprice, #gdescr, #gimg, #gorder, #gtype {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-top: 20px;
+  }
+  .description {
+    margin-top: 20px; 
+  }
+  textarea {
+    resize:none;
+  }
+  button {
+    color: white;
+    margin-top: 20px;
+    padding: 3px 5px;
+    background-color: #182450;
+    border-radius: 5px;
+  }
+  button:hover {
+    background-color: red;
+    transition: 0.4s;
+  }

@@ -16,9 +16,9 @@ switch ($action) {
         case "newBooks":
             newBooks();
             break;  
-        // case 'deleteBooks';
-        //     deleteBooks();
-        //     break;   
+        case 'deleteBooks';
+            deleteBooks();
+            break;   
         case "loadBooks":
             loadBooks();
             break;

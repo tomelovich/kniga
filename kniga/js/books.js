@@ -13,43 +13,48 @@ function init() {
 }
 
 function booksOut(data) {
-    if (data!=0){
-        data = JSON.parse(data);
-        let out =''; 
-        
-            out +='<div class="catalog__item">'
-                out +='<div class="catalog__product">'
-                out +=`<img src="${data.img}" alt="" class="product__img">`;
-                out +='<div class="product__content">'
-                    out +=`<h3 class="product__title">${data.name}</h3>`;
-                    out +=`<p class="product__description">${data.author}</p>`;
-                out +=`</div>`;
-                out +='<footer class="product__footer">';
-                    out +='<div class="product__bottom">';
-                    out +='<div class="product__price">';
-                        out +=`<span class="product__price-value">${data.price} BYN</span>`;
-                    out +=`</div>`;
-                    out +='<div class="product-buttons">';
-                        out +=`<button type="submit" class="add-to-cart" data-id="${data.id}">`;
-                        out +='<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg>';
-                        out +=`</button>`;
-                        out +=`<button type="submit" class="later" data-id="${data.id}">`;
-                        out +='<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>';
-                        out +=`</button>`;
-                    out +=`</div>`;
-                    out +=`</div>`;
-                out +=`</footer>`;
-                out +=`</div>`;
-            out +=`</div>`;
-            out +=`<textarea>${data.description}</textarea>`;
-        $('.catalog').html(out);
-        $('.add-to-cart').on('click', addToCart);
-        $('.later').on('click', addToLatter);
-    }
-    else{
-        $('.catalog').html('Товара не существует!');
-    }
-    
+  if (data!=0){
+    data = JSON.parse(data);
+    let out =''; 
+    out +='<div class="catalog-book__item">'
+      out +='<div class="catalog-book__product">'
+        out +='<div class="book_image">'
+          out +=`<img src="${data.img}" alt="" class="product__img">`;
+          out +=`<button type="submit" class="later" data-id="${data.id}">Добавить в избранное</button>`;
+        out +=`</div>`;
+        out +='<div class="product__content">'
+          out +=`<h3 class="product__title">${data.name}</h3>`;
+          out +=`<p class="product__description">${data.author}</p>`;
+          out +=`<span class="product__price-value">${data.price} BYN</span>`;
+          out +=`<button type="submit" class="add-to-cart" data-id="${data.id}"></button>`;
+          out +=`<p class="description-book">${data.description}</p>`;
+      
+        out +=`</div>`;
+      out +=`</div>`;
+    out +=`</div>`;
+    $('.catalog-book').html(out);
+    $('.add-to-cart').on('click', addToCart);
+    $('.later').on('click', addToLatter);
+  }
+  else{
+    $('.catalog-book').html('Товара не существует!');
+  }
+  
+}
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Читать больше";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Читать меньше";
+    moreText.style.display = "inline";
+  }
 }
 function addToCart() {
     //добавляем товар в корзину

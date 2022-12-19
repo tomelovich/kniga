@@ -381,15 +381,14 @@ function addToLatter() {
   }
   
   var id = $(this).attr('data-id');
+  var element = $(`.svg_2[data-id=${id}]`);
+  $(element).toggleClass('filled')
   later[id] = 1;
   localStorage.setItem('later', JSON.stringify(later)); //корзину в строку
   
  
   // загорается сердечко, но пропадает при переходе на другую страницу
-  var element = $(`.svg_2[data-id=${id}]`);
-  $(element).toggleClass('filled')
-  localStorage
-
+  
 }
 
 

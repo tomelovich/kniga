@@ -56,7 +56,7 @@ function showCart() {
                     out += '<div class="description">'
                         out += '<div class="main-cart-item-description">'
                             out += `<h4><a href="books.html#${id}">${books[id].name}</a></h4>`;
-                            out += `<p>${price} руб.</p>`;
+                            out += `<p class="price">${price} руб.</p>`;
                             out += '<div class="amount">'
                                 out += `<button data-id="${id}" class="minus-books">-</button>`; 
                                 out += `<p>${cart[id]}</p>`;
