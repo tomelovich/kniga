@@ -36,15 +36,7 @@ function loadComics() {
     comicsOut
   )
 }
-function loadAll() {
-  $.post(
-    "admin/core.php",
-    {
-      "action": "loadBooks"
-    },
-    allOut
-  )
-}
+
 function booksOut(data) {
     data = JSON.parse(data);
     let out =''; 
@@ -81,7 +73,7 @@ function booksOut(data) {
               out += '<svg width="640" height="480" viewbox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">';
               out += '<title>Small red heart with transparent background</title>';
               out += '<g>';
-              out += '<title>Layer 1</title>';
+              out += '<title>Избранное</title>';
               out += ' <g id="layer1">';
               out += `<path class="svg_2" data-id="${key}" d="m219.28949,21.827393c-66.240005,0 -119.999954,53.76001 -119.999954,120c0,134.755524 135.933151,170.08728 228.562454,303.308044c87.574219,-132.403381 228.5625,-172.854584 228.5625,-303.308044c0,-66.23999 -53.759888,-120 -120,-120c-48.047913,0 -89.401611,28.370422 -108.5625,69.1875c-19.160797,-40.817078 -60.514496,-69.1875 -108.5625,-69.1875z"/>`;
               out += '</g>';
@@ -102,71 +94,9 @@ function booksOut(data) {
     $('.manga').on('click', loadManga);
     $('.comics').on('click', loadComics);
     $('.book').on('click', loadBook);
-    $('.all').on('click', allOut);
+    $('.all').on('click', init);
 }
-function allOut(data) {
-  // почему-то не работает--------------------------------------------------------------------------------------------
-  
-  let out =''; 
-  out +='<div class="container">'
-    out +='<header class="section__header">'
-    out +='<h2 class="section__title section__title--accent">Каталог</h2>'
-    out +='<nav class="catalog-nav">'
-    out +='<ul class="catalog-nav__wrapper">'
-    out +=`<li class="catalog-nav__item"><button class="catalog-nav__btn is-active all"  type="button">все</button></li>`
-    out +=`<li class="catalog-nav__item"><button class="catalog-nav__btn book"  type="button">книги</button></li>`
-    out +=`<li class="catalog-nav__item"><button class="catalog-nav__btn manga" type="button">манга</button></li>`
-    out +=`<li class="catalog-nav__item"> <button class="catalog-nav__btn comics"  type="button">комиксы</button></li>`
-    out +=`</ul>`;
-    out +=`</nav>`;
-    out +=`</header>`;
-    out +=`</div>`;
-  for (var key in data) {
-    
-      out +='<div class="catalog__item">'
-      out +='<div class="catalog__product">'
-        out +=`<img src="${data[key].img}" alt="" class="product__img">`;
-        out +='<div class="product__content">'
-          out +=`<h3 class="product__title"><a href="books.html#${key}">${data[key].name}</a></h3>`;
-          out +=`<p class="product__description">${data[key].author}</p>`;
-        out +=`</div>`;
-        out +='<footer class="product__footer">';
-        out +='<div class="product__bottom">';
-          out +='<div class="product__price">';
-            out +=`<span class="product__price-value">${data[key].price} BYN</span>`;
-          out +=`</div>`;
-          out +='<div class="product-buttons">';
-            out +=`<button type="submit" class="add-to-cart" data-id="${key}">В корзину`;
-            out +=`</button>`;
-          out +=`<button type="submit" class="later" data-id="${key}">`;
-          out += '<svg width="640" height="480" viewbox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">';
-          out += '<title>Small red heart with transparent background</title>';
-          out += '<g>';
-          out += '<title>Layer 1</title>';
-          out += ' <g id="layer1">';
-          out += `<path class="svg_2" data-id="${key}" d="m219.28949,21.827393c-66.240005,0 -119.999954,53.76001 -119.999954,120c0,134.755524 135.933151,170.08728 228.562454,303.308044c87.574219,-132.403381 228.5625,-172.854584 228.5625,-303.308044c0,-66.23999 -53.759888,-120 -120,-120c-48.047913,0 -89.401611,28.370422 -108.5625,69.1875c-19.160797,-40.817078 -60.514496,-69.1875 -108.5625,-69.1875z"/>`;
-          out += '</g>';
-          out += '</g>';
-          out += '</svg>';
-  
-            out +=`</button>`;
-          out +=`</div>`;
-        out +=`</div>`;
-      out +=`</footer>`;
-    out +=`</div>`;
-  out +=`</div>`;
-    }
-    
-    
-  
-  $('.catalog').html(out);
-  $('.add-to-cart').on('click', addToCart);
-  $('.later').on('click', addToLatter);
-  $('.manga').on('click', loadManga);
-  $('.comics').on('click', loadComics);
-  $('.book').on('click', loadBook);
-  $('.all').on('click', allOut);
-}
+
 function mangaOut(data) {
   data = JSON.parse(data);
   let out =''; 
@@ -204,7 +134,7 @@ function mangaOut(data) {
           out += '<svg width="640" height="480" viewbox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">';
           out += '<title>Small red heart with transparent background</title>';
           out += '<g>';
-          out += '<title>Layer 1</title>';
+          out += '<title>Избранное</title>';
           out += ' <g id="layer1">';
           out += `<path class="svg_2" data-id="${key}" d="m219.28949,21.827393c-66.240005,0 -119.999954,53.76001 -119.999954,120c0,134.755524 135.933151,170.08728 228.562454,303.308044c87.574219,-132.403381 228.5625,-172.854584 228.5625,-303.308044c0,-66.23999 -53.759888,-120 -120,-120c-48.047913,0 -89.401611,28.370422 -108.5625,69.1875c-19.160797,-40.817078 -60.514496,-69.1875 -108.5625,-69.1875z"/>`;
           out += '</g>';
@@ -229,7 +159,7 @@ function mangaOut(data) {
   $('.manga').on('click', loadManga);
   $('.comics').on('click', loadComics);
   $('.book').on('click', loadBook);
-  $('.all').on('click', allOut);
+  $('.all').on('click', init);
 }
 function bookOut(data) {
   data = JSON.parse(data);
@@ -268,7 +198,7 @@ function bookOut(data) {
               out += '<svg width="640" height="480" viewbox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">';
               out += '<title>Small red heart with transparent background</title>';
               out += '<g>';
-              out += '<title>Layer 1</title>';
+              out += '<title>Избранное</title>';
               out += ' <g id="layer1">';
               out += `<path class="svg_2" data-id="${key}" d="m219.28949,21.827393c-66.240005,0 -119.999954,53.76001 -119.999954,120c0,134.755524 135.933151,170.08728 228.562454,303.308044c87.574219,-132.403381 228.5625,-172.854584 228.5625,-303.308044c0,-66.23999 -53.759888,-120 -120,-120c-48.047913,0 -89.401611,28.370422 -108.5625,69.1875c-19.160797,-40.817078 -60.514496,-69.1875 -108.5625,-69.1875z"/>`;
               out += '</g>';
@@ -293,7 +223,7 @@ function bookOut(data) {
   $('.manga').on('click', loadManga);
   $('.comics').on('click', loadComics);
   $('.book').on('click', loadBook);
-  $('.all').on('click', allOut);
+  $('.all').on('click', init);
 }
 function comicsOut(data) {
   data = JSON.parse(data);
@@ -332,7 +262,7 @@ function comicsOut(data) {
               out += '<svg width="640" height="480" viewbox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">';
               out += '<title>Small red heart with transparent background</title>';
               out += '<g>';
-              out += '<title>Layer 1</title>';
+              out += '<title>Избранное</title>';
               out += ' <g id="layer1">';
               out += `<path class="svg_2" data-id="${key}" d="m219.28949,21.827393c-66.240005,0 -119.999954,53.76001 -119.999954,120c0,134.755524 135.933151,170.08728 228.562454,303.308044c87.574219,-132.403381 228.5625,-172.854584 228.5625,-303.308044c0,-66.23999 -53.759888,-120 -120,-120c-48.047913,0 -89.401611,28.370422 -108.5625,69.1875c-19.160797,-40.817078 -60.514496,-69.1875 -108.5625,-69.1875z"/>`;
               out += '</g>';
@@ -357,7 +287,7 @@ function comicsOut(data) {
   $('.manga').on('click', loadManga);
   $('.comics').on('click', loadComics);
   $('.book').on('click', loadBook);
-  $('.all').on('click', booksOut);
+  $('.all').on('click', init);
 }
 function addToCart() {
     //добавляем товар в корзину
@@ -385,9 +315,6 @@ function addToLatter() {
   $(element).toggleClass('filled')
   later[id] = 1;
   localStorage.setItem('later', JSON.stringify(later)); //корзину в строку
-  
- 
-  // загорается сердечко, но пропадает при переходе на другую страницу
   
 }
 
@@ -468,8 +395,121 @@ function loadCart() {
     }
 }
 
+$("#newUser").click(function(){
+  $(".reg").text("Регистрация");
+ 
+  $("#login-form").fadeOut(200);
+  $("#registration-form").delay(300).fadeIn(500);
+  $(".other-options").fadeOut(200);
+});
 
+$("#signup-btn,#getpass-btn").click(function(){
+  $(".reg").text("Авторизация");
+  
+
+  $("#registration-form,#fpass-form").fadeOut(200);
+  $("#login-form").delay(300).fadeIn(500);
+  $(".other-options").fadeIn(300);
+});
+
+$("#fPass").click(function(){
+  $(".reg").text("Восстановление пароля");
+  
+
+  $("#login-form").fadeOut(200);
+  $("#fpass-form").delay(300).fadeIn(500);
+  $(".other-options").fadeOut(200);
+});
+
+function newUser() {
+  const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+  var email = $('#email').val();
+  var epassword = $('#epassword').val();
+  var erepassword = $('#erepassword').val();
+  if(email!='' && epassword!='' && erepassword!=''){
+    if (isEmailValid(email)) {
+      if (erepassword==epassword){
+        $.post (
+          "/admin/core.php",
+            {
+                "action" : "registration",
+                "email": email,
+                "epassword": epassword
+            },
+          
+        function (data) {
+          console.log(data)
+        }        
+        );
+    }
+    else {
+      alert("Пароли не совпадают");
+    }
+  }
+    else {
+      alert("Введён не правильный email");
+    }
+    function isEmailValid(value) {
+      return EMAIL_REGEXP.test(value);
+  }
+  }
+    
+  else {
+    alert ("Заполните поля")
+  }
+}
+function signIn() {
+  const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+  var email = $('#logEmail').val();
+  var epassword = $('#logEpassword').val();
+  
+  if(email!='' && epassword!=''){
+    if (isEmailValid(email)) {
+      
+        $.post (
+          "/admin/core.php",
+            {
+                "action" : "authorization",
+                "email": email,
+                "epassword": epassword
+            },
+          
+        function (data) {
+          console.log(data)
+        }        
+        );
+    }
+  
+    else {
+      alert("Введён не правильный email");
+    }
+    function isEmailValid(value) {
+      return EMAIL_REGEXP.test(value);
+  }
+  }
+    
+  else {
+    alert ("Заполните все поля")
+  }
+}
 $(document).ready(function () {
     init();
     loadCart();
+    $('#signup-btn').on('click', newUser);
+  $('#signin-btn').on('click', signIn);
+  $("a.myLinkModal").click(function (event) {
+    event.preventDefault();
+    $("#myOverlay").fadeIn(297, function () {
+        $("#registrationModal")
+            .css("display", "block")
+            .animate({ opacity: 1 }, 198);
+    });
+});
+
+$("#myModal__close, #myOverlay").click(function () {
+    $("#registrationModal").animate({ opacity: 0 }, 198, function () {
+        $(this).css("display", "none");
+        $("#myOverlay").fadeOut(297);
+    });
+});
 });

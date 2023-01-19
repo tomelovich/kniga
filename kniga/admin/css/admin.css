@@ -87,14 +87,24 @@ body{
     margin-left: -50px;
   }
   
-  
   .icons img {
     width: 30px;
+  }
+  .basket img {
+    width:50px;
+  }
+  
+  .icons img:hover {
+    transition: 0.4s;
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
   }
   main{
     margin: 150px 10px 0 10px;
     
   }
+  
   main span {
     font-size: 35px;
     font-weight: 600;
@@ -110,7 +120,7 @@ body{
     font-family: 'Playfair Display', serif;
     color: #182450;
   }
-  #gname, #gauthor, #gauthor, #gprice, #gdescr, #gimg, #gorder, #gtype {
+  #gname, #gauthor, #gauthor, #gprice, #gdescr, #gimg, #gorder, #gtype, #gnumb {
     border: 1px solid black;
     border-radius: 3px;
     margin-top: 20px;

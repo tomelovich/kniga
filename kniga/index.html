@@ -8,7 +8,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>КнигаБай</title>
+    <title>Kniga shop</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 </head>
@@ -32,11 +32,13 @@
                 </div>
             </div>
             <a href="./favorites.html" class="icons"><img src="./img/header/ponrav.png" alt="like"></a>
-            <a href="#" class="icons"><img src="./img/header/user.png" alt="user profile"></a>
-            <a href="./cart.html" class="icons"><img src="./img/header/korzina.png" alt="basket"></a>
+            <a href="#" class="icons myLinkModal" ><img src="./img/header/user.png" alt="user profile"></a>
+            <a href="./cart.html" class="icons basket"><img src="./img/header/korzina.png" alt="basket"></a>
         </nav>
+        
     </header>
     <main>
+        
         <blockquote>
             <p class="text">Любить чтение — это обменивать часы скуки, неизбежные в жизни, на часы большого наслаждения.</p>
             <footer>— <cite>Цицерон</cite></footer>
@@ -66,7 +68,7 @@
         <section class="about_us">
             <a href="" id="info"></a>
             <h1>О магазине</h1>
-            <p><span>КнигаБай</span> - один из крупнейших интернет-магазинов в области продажи литературы. Вас 
+            <p><span>Kniga shop</span> - один из крупнейших интернет-магазинов в области продажи литературы. Вас 
                 ждёт огромный асосортимент (более 300 различных книг) художественной, научной, учебной и других 
                 видов литературы.
             </p>
@@ -82,9 +84,41 @@
                 
             </div>
         </section>
+        <div id="registrationModal">
+            <div class="header">
+                <h1 class="reg">Авторизация</h1>
+              </div>
+              
+              <div class="logo"><a href="/index.html"><img src="./img/header/логотип.svg" class="logo" alt="logo"></a></div>
+              
+              <form id="registration-form">
+                <input type="email" name="email" id="email" placeholder=" Ваш E-mail">
+                <input type="password" name="pass" id="epassword" placeholder="Пароль">
+                <input type="password" name="repass" id="erepassword" placeholder="Повторите пароль">
+                <a href="#" class="login-btn" id="signup-btn">Зарегистрироваться</a>
+              </form>
+            
+              <form id="login-form">
+                <input type="email" name="email" id="logEmail" placeholder="Ваш E-mail">
+                <input type="password" name="pass" id="logEpassword" placeholder="Пароль">
+                <a href="#" class="login-btn" id="signin-btn">Войти</a>
+              </form>
+              
+              <form id="fpass-form">
+                <input type="text" name="forgotten" placeholder="Ваш E-mail">
+                <a href="#" class="login-btn" id="getpass-btn">Восстановить</a>
+              </form>
+              
+              <div class="other-options">
+                <div class="option" id="newUser"><p class="option-text">Новый пользователь</p></div>
+                <div class="option" id="fPass"><p class="option-text"> Не помню пароль</p></div>
+              </div>
+            <span id="myModal__close" class="close">✕</span>
+        </div>
+        <div id="myOverlay"></div>
         <section class="payment-delivery">
             <a href="" id="delivery"></a>
-            <h1>Оплата и доставка</h1>
+            <h1 class="reg">Оплата и доставка</h1>
             <div class="shipping-methods">
                 <ul>
                     <li><a href="#!" class="pickup-link" onclick="openbox('pickup'); return false">Самовывоз</a></li>

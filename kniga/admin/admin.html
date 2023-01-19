@@ -25,7 +25,7 @@
             </div>
             <a href="/favorites.html" class="icons"><img src="/img/header/ponrav.png" alt="like"></a>
             <a href="#" class="icons"><img src="/img/header/user.png" alt="user profile"></a>
-            <a href="/cart.html" class="icons"><img src="/img/header/korzina.png" alt="basket"></a>
+            <a href="/cart.html" class="icons basket"><img src="/img/header/korzina.png" alt="basket"></a>
         </nav>
     </header>
     <main>
@@ -40,7 +40,7 @@
         <p>Стоимость: <input type="text" id="gprice"></p>
         <p class="description">Описание:</p>
         <textarea cols="100" rows="10" spellcheck="true" id="gdescr"></textarea>
-        <p>Изображение: <input type="text" id="gimg" class="gimg"></p>
+        <p>Изображение: <input type="text" id="gimg" data-clue="Это простая подсказка без JavaScript" class="gimg"></p>
         <p>Порядок: <input type="text" id="gorder"></p>
         <p>Тип:
             <select name="select" id="gtype" size="1">
@@ -49,9 +49,12 @@
                 <option>manga</option>
            </select>
         </p>
+        <p>Количество товара: <input type="text" id="gnumb"></p>
         <input type="hidden" id="gid">
-        <button class="add-to-db">Обновить / Добавить</button>
-        <button class="delete-from-db">Удалить товар</button>
+        <button class="add-to-db">Добавить</button>
+        <button class="update">Обновить</button>
+        <!-- d -->
+
     </main>
     
     <script src="js/jquery-3.6.1.min.js"></script>

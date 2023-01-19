@@ -64,6 +64,7 @@ function selectBooks(){
             $('#gorder').val(data.ord);
             $('#gimg').val(data.img);
             $('#gtype').val(data.type);
+            $('#gnumb').val(data.numb);
             $('#gid').val(data.id);
             if (data == 1) {
                 alert("Информация обновлена")
@@ -84,7 +85,7 @@ function deleteBooks() {
             "core.php",
             {
                 "action" : "deleteBoods",
-                "id" : id
+                "gid" : id
             },
             function (data) {
                 if (data==1) {
@@ -103,33 +104,7 @@ function deleteBooks() {
 }
 function saveToDb(){
     var id = $('#gid').val();
-    if (id!=""){
-        $.post(
-            "core.php",
-            {
-                "action": "updateBooks",
-                "id": id,
-                "gname": $('#gname').val(),
-                "gauthor":$('#gauthor').val(),
-                "gprice":$('#gprice').val(),
-                "gdescr":$('#gdescr').val(),
-                "gorder":$('#gorder').val(),
-                "gimg":$('#gimg').val(),
-                "gtype":$('#gtype').val(),
-                "gid":$('#gid').val()
-            },
-            function(data){
-                if (data == 1) {
-                    alert('Информация обновлена')
-                    init();
-                }
-                else {
-                    console.log(data);
-                }
-            }
-        )
-    }
-    else{
+    
         $.post(
             "core.php",
             {
@@ -142,6 +117,7 @@ function saveToDb(){
                 "gorder":$('#gorder').val(),
                 "gimg":$('#gimg').val(),
                 "gtype":$('#gtype').val(),
+                "gnumb":$('#gnumb').val(),
                 "gid":$('#gid').val()
             },
             function(data){
@@ -154,13 +130,40 @@ function saveToDb(){
                 }
             }
         );
-    }
+    
 }
-
+function updateDb() {
+    var id = $('#gid').val();
+    $.post(
+        "core.php",
+        {
+            "action": "updateBooks",
+            "id": id,
+            "gname": $('#gname').val(),
+            "gauthor":$('#gauthor').val(),
+            "gprice":$('#gprice').val(),
+            "gdescr":$('#gdescr').val(),
+            "gorder":$('#gorder').val(),
+            "gimg":$('#gimg').val(),
+            "gtype":$('#gtype').val(),
+            "gnumb":$('#gnumb').val(),
+            "gid":$('#gid').val()
+        },
+        function(data){
+            if (data == 1) {
+                alert('Информация обновлена')
+                init();
+            }
+            else {
+                console.log(data);
+            }
+        }
+    )
+}
 
 $(document).ready(function () {
    init();
    $('.add-to-db').on('click', saveToDb);
    $('.delete-from-db').on('click', deleteBooks);
-   
+   $('.update').on('click', updateDb);
 });

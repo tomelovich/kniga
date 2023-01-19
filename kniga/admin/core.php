@@ -33,10 +33,12 @@ switch ($action) {
             break;
         case "loadComics":
             loadComics();
-            break;    
-        case "loadAll":
-            loadAll();
             break;
-           
+        case "registration":
+            registration();
+            break;    
+        case "authorization":
+            authorization();
+            break;        
 }
       
