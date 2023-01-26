@@ -1,5 +1,5 @@
 let cart = {};//корзина
-
+var later = {};
 function init() {
     $.post(
       "admin/core.php",
@@ -70,15 +70,7 @@ function booksOut(data) {
                 out +=`<button type="submit" class="add-to-cart" data-id="${key}">В корзину`;
                 out +=`</button>`;
               out +=`<button type="submit" class="later" data-id="${key}">`;
-              out += '<svg width="640" height="480" viewbox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">';
-              out += '<title>Small red heart with transparent background</title>';
-              out += '<g>';
-              out += '<title>Избранное</title>';
-              out += ' <g id="layer1">';
-              out += `<path class="svg_2" data-id="${key}" d="m219.28949,21.827393c-66.240005,0 -119.999954,53.76001 -119.999954,120c0,134.755524 135.933151,170.08728 228.562454,303.308044c87.574219,-132.403381 228.5625,-172.854584 228.5625,-303.308044c0,-66.23999 -53.759888,-120 -120,-120c-48.047913,0 -89.401611,28.370422 -108.5625,69.1875c-19.160797,-40.817078 -60.514496,-69.1875 -108.5625,-69.1875z"/>`;
-              out += '</g>';
-              out += '</g>';
-              out += '</svg>';
+              out += `<span data-id="${key}" class="material-symbols-outlined">favorite</span>`
       
                 out +=`</button>`;
               out +=`</div>`;
@@ -89,8 +81,10 @@ function booksOut(data) {
     }
   
     $('.catalog').html(out);
+    
     $('.add-to-cart').on('click', addToCart);
     $('.later').on('click', addToLatter);
+     
     $('.manga').on('click', loadManga);
     $('.comics').on('click', loadComics);
     $('.book').on('click', loadBook);
@@ -295,7 +289,7 @@ function addToCart() {
     // console.log(id);
     if (cart[id]==undefined) {
         cart[id] = 1; //если в корзине нет товара - делаем равным 1
-
+        
     }
     else {
         cart[id]++; //если такой товар есть - увеличиваю на единицу
@@ -304,21 +298,38 @@ function addToCart() {
     saveCart();
 }
 function addToLatter() {
-  var later = {};
-  if (localStorage.getItem('later')) {
-    
-    later = JSON.parse(localStorage.getItem('later'));
-  }
-  
+ 
+ 
   var id = $(this).attr('data-id');
-  var element = $(`.svg_2[data-id=${id}]`);
-  $(element).toggleClass('filled')
-  later[id] = 1;
-  localStorage.setItem('later', JSON.stringify(later)); //корзину в строку
-  
+  if (later[id]==undefined) {
+    later[id] = 1;   
+    $('.material-symbols-outlined').addClass("filled"); 
+  }
+  else {
+    delete later[id];
+    $('.material-symbols-outlined').removeClass("filled");
+  }
+  localStorage.setItem('later', JSON.stringify(later)); 
+ 
+  laterShow()
+ 
+
 }
-
-
+function laterShow() {
+  $('.material-symbols-outlined').each(function(i, elem)
+  {
+       var id = $(elem).attr('data-id');
+      if (later[id]==undefined) {
+        $(`.material-symbols-outlined[data-id=${id}]`).removeClass("filled");
+       
+      }
+      else {
+        $(`.material-symbols-outlined[data-id=${id}]`).addClass("filled");
+        
+      } 
+  });
+ 
+}
 
 function showMiniCart() {
     //показываю мини корзину
@@ -353,7 +364,7 @@ function showMiniCart() {
       
       out += '<div class="mini-cart-total">'
           out += `<p>Итого: <b>${total} руб.</b></p>`;
-          out += `<button class="checkout">Перейти к оформлению</button>`;
+          out += `<a href="/order.html" class="checkout">Перейти к оформлению</a>`;
         out += '</div>'
       $('.mini-cart').html(out);
       $('.del-books').on('click', delBooks);
@@ -494,6 +505,7 @@ function signIn() {
 }
 $(document).ready(function () {
     init();
+    
     loadCart();
     $('#signup-btn').on('click', newUser);
   $('#signin-btn').on('click', signIn);

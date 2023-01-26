@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
 .nav {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
     position: fixed;
     background-color: white;
     z-index: 100;
@@ -97,161 +99,272 @@
     -ms-transform: scale(0.8);
     transform: scale(0.8);
   }
-  #registrationModal {
-    width: 400px; height: 400px;
-    background: #182450;
-    position: fixed;
-    top: 150px; left: 0; right: 0; bottom: 0;
-    margin: auto;
-    z-index: 40;
-    display: none;
+  main {
+    margin-top: 150px;
   }
-  #myOverlay {
-    z-index: 37;
-    position: fixed;
-    background: rgba(0,0,0,.7);
-    width: 100%; height: 100%;
-    top: 0; left: 0;
-    cursor: pointer;
-    display: none;
-  }
-  .header{
-    position: relative;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: auto;
-    background: rgba(3,3,3,.1);
-  }
-  
-  .header h1{
-    margin: 0;
-    padding: 10px 0;
-    text-align: center;
-    font-weight: 300;
-    font-size: 21px;
-    color: white;
-    font-family: 'Playfair Display', serif;
-  }
-  
-  form{
-    position: absolute;
-    bottom: 50px;
-    width: 100%;
-  }
-  
-  input,
-  .login-btn{
-    font-family: 'Open Sans', sans-serif;
-    position: relative;
-    display: block;
-    margin: 20px auto;
-    padding: 10px;
-    width: 84%;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-  }
-  
-  input{
-    border: none;
-    border-left: 5px solid;
-    background: none;
-    border-color: white;
-    color: #fff;
-    font-weight: 300;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  margin: 5% 0;
+  color: #182450;
+  text-align: center;
+}
+h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin: 10px 0 0 10px;
+  color:#182450;
+}
+.infoOrder {
+  display: flex;
+  margin: 10px;
+
+}
+.yourOrder {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+  width: 20%;
+  max-height: 250px;
+}
+.go-design {
+  margin-left: 10px;
+}
+.main-cart-total p{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-  }
+    margin: 10px;
+    font-weight: 500;
+}
+.main-cart-total b {
+  font-weight:normal;
+}
+.checkout {
+  transition: 0.4s;
+  margin: 5px 10px;
+  background-color: #182450;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    padding: 5px 0;
+}
+.checkout:hover {
+  background-color: red;
+  transition: 0.4s;
+}
+.result {
+  border-top: 1px solid #a2a2a2;
   
-  input:focus{
-    outline: 0;
-    background: rgba(187, 187, 187, 0.2);
-    border-radius: 20px;
-    border-color: transparent;
-  }
+}
+.delivery {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+  width: 39%; 
+  margin-right: 10px;
+  max-height: 250px;
+}
+
+.pay {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+  width: 39%; 
+  margin-right: 10px;
+  max-height: 250px;
+}
+.container {
+	display: flex;
+	align-items:flex-start;
+  margin:15px 10px;
+  font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+}
+
+.list {
+  flex: 0 0 20rem;
+}
+.list__item {
+  position: relative;
+}
+.list__item:hover > .label {
+  color: #182450;
+}
+.list__item:hover > .label::before {
+  border: 0.5rem solid #182450;
+  margin-right: 2rem;
+}
+.radio-btn {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.radio-btn:checked + .label {
+  color: #182450;
+}
+.radio-btn:checked + .label::before {
+  margin-right: 2rem;
+  border: 0.5rem solid #182450;
+  background: #fff;
+}
+.label {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: #a2a2a2;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+.label::before {
+  display: inline-block;
+  content: "";
+  height: 1.125rem;
+  width: 1.125rem;
+  margin-right: 0.625rem;
+  border: 0.5rem solid #a2a2a2;
+  border-radius: 50%;
+  transition: all 0.25s linear;
+}
+
+.pickup, .courier, .europost {
+	display:none;
+	position: relative;    
+  font-size: 16px;
+}
+.pickup p{
+  text-align: justify;
+}
+.courier {
+  width: 400px;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+.textInput {
+  border-bottom: 1px solid black;
+  margin: 10px 50px;
+  width: 400px;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+.numberInput {
+  width: 100px;
+  border-bottom: 1px solid black;
+  margin: 10px 50px;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+.europost {
+  flex-wrap: wrap;
   
-  .login-btn{
-    transition: 0.4s;
-    text-align: center;
-    background: rgb(225, 40, 54);
-    color: #fff;
-  }
-  .login-btn:hover {
-    border-radius: 20px;
-    transition: 0.4s;
-  }
+}
+.europost p {
+  text-align: justify;
+}
+.europost img {
+  width: 22px;
+}
+.europost a {
+  color: #182450;
+  font-weight: 600;
   
-  .other-options{
-    position: absolute;
-    width: 100%;
-    height: 30px;
-    bottom: 2px;
-    left: 0;
-  }
+}
+.europost a:hover {
+  color: red;
+  transition: 0.4s;
+}
+.deliveryInfo {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.radioPay {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+.radioPay:checked + .label {
+  color: #182450;
+}
+.radioPay:checked + .label::before {
+  margin-right: 2rem;
+  border: 0.5rem solid #182450;
+  background: #fff;
+}
+.cash, .paymentCard {
+  display: none;
+}
+.list p {
+  margin-left: 50px;
+  text-align: justify;
+}
+.paymentCard {
+  flex-wrap: wrap;
+  text-align: justify;
+}
+.paymentCard a {
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #182450;
+  color: white;
+  margin: 10px 0 10px 50px;
+  transition: 0.4s;
+}
+.paymentCard a:hover {
+  background-color: red;
+  transition: 0.4s;
+}
+.infoUser {
+  font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+  margin: 10px 17px 10px 10px;
+}
+.userData {
   
-  .option{
-    position: relative;
-    display: block;
-    float: right;
-    width: 45%;
-    margin: auto;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    background: rgba(0,0,0,.2);
-    border-bottom: 2px solid  rgb(225, 40, 54);
-    cursor: pointer;
-  }
+  margin:15px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.userData input {
+  padding: 5px;
+  width: 300px;
+  border-bottom: 1px solid black;
+}
+.checkboxContent {
+  padding-bottom: 10px;
+  margin-left: 10px;
+  display: flex;
+  column-gap: 10px;
+}
+
+
+
+.footer {
+  background-color: #182450;
+  height: 100px;
+  margin-top: 100px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height:60px;
+  margin: 0 13%;
   
-  .option:first-child{
-    float: left;
-    left: 3.3%;
-  }
-  
-  .option:last-child{
-    margin-right: 3.3%;
-  }
-  
-  .option-text{
-    position: relative;
-    margin: 0;
-    line-height: 30px;
-    color: #ccc;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 100;
-  }
-  
-  #fpass-form,
-  #registration-form{
-    display: none;
-  }
-  
-  /* Change colors container */
-  .change-colors-container{
-    position: absolute;
-    height: 300px;
-    width: 50px;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background: rgba(255,255,255,.5);
-  }
-  #myModal__close {
-    position: absolute;
-    top: 0;
-    right: 7px;
-    font-size: 30px;
-    text-align: center;
-    color: white;
-  }
-  #myModal__close:hover {
-    color:rgb(225, 40, 54);
-    cursor: pointer;
-    transition: 0.4s;
-  }
+}
+.address p {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 19px;
+  color: white;
+}
+.address a {
+  color:white;
+}

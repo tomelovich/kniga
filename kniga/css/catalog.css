@@ -19,6 +19,7 @@ body {
   background-color: #ffffff;
 }
 .nav {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
   position: fixed;
   background-color: white;
   z-index: 100;
@@ -612,16 +613,20 @@ input:focus{
     height: auto;
   }
   
-  .svg_2{
+  .material-symbols-outlined{
     fill:transparent; 
     stroke:#f00;
     stroke-width:6px;
     cursor:pointer;
     transition:fill .3s;
   }
-  .svg_2.filled{
-    fill:#f00;
-  }
+  .filled{
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
   .mini-cart {
     margin-left: 10px;
     width: 20%;
@@ -677,17 +682,21 @@ input:focus{
   .mini-cart-total b {
     font-size: 36px;
   }
-  .mini-cart-total button {
-    width: 100%;
-    padding:  10px 0;
+  .checkout {
+    transition: 0.4s;
+    margin: 5px 10px;
     background-color: #182450;
-    color: white;
     border-radius: 5px;
-    font-weight: 600;
+    display: block;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      padding: 5px 0;
   }
-  .mini-cart-total button:hover {
+  .checkout:hover {
     background-color: red;
-    transition: 0.2s;
+    transition: 0.4s;
   }
 .footer {
   width: 100%;

@@ -30,39 +30,111 @@
             <a href="./cart.html" class="icons basket"><img src="./img/header/korzina.png" alt="basket"></a>
         </nav>
         
-        <div id="registrationModal">
-            <div class="header">
-                <h1 class="reg">Авторизация</h1>
-              </div>
-              
-              <div class="logo"><a href="/index.html"><img src="./img/header/логотип.svg" class="logo" alt="logo"></a></div>
-              
-              <form id="registration-form">
-                <input type="email" name="email" id="email" placeholder=" Ваш E-mail">
-                <input type="password" name="pass" id="epassword" placeholder="Пароль">
-                <input type="password" name="repass" id="erepassword" placeholder="Повторите пароль">
-                <a href="#" class="login-btn" id="signup-btn">Зарегистрироваться</a>
-              </form>
-            
-              <form id="login-form">
-                <input type="email" name="email" id="logEmail" placeholder="Ваш E-mail">
-                <input type="password" name="pass" id="logEpassword" placeholder="Пароль">
-                <a href="#" class="login-btn" id="signin-btn">Войти</a>
-              </form>
-              
-              <form id="fpass-form">
-                <input type="text" name="forgotten" placeholder="Ваш E-mail">
-                <a href="#" class="login-btn" id="getpass-btn">Восстановить</a>
-              </form>
-              
-              <div class="other-options">
-                <div class="option" id="newUser"><p class="option-text">Новый пользователь</p></div>
-                <div class="option" id="fPass"><p class="option-text"> Не помню пароль</p></div>
-              </div>
-            <span id="myModal__close" class="close">✕</span>
-        </div>
-        <div id="myOverlay"></div>
+       
     </header>
+    <main>
+      <section class="ordering">
+        <h1>Оформление заказа</h1>
+          
+        <div class="infoOrder">
+          <div class="delivery">
+            <h2>Способ доставки</h2>
+            <div class="container">
+              <ul class="list">
+                <li class="list__item">
+                  <input type="radio" class="radio-btn" name="choice" id="a-opt" />
+                  <label for="a-opt" class="label">Самовывоз</label>
+                </li>
+                <div class="pickup">
+                  <p>Вы можете самостоятельно забрать заказ из нашего магазина по адресу г. Гродно, ул.Курчатова д. 4</p>
+                </div>
+                <li class="list__item">
+                  <input type="radio" class="radio-btn" name="choice" id="b-opt" />
+                  <label for="b-opt" class="label">Доставка курьером в пределах Гродно</label>
+                </li>
+                <div class="courier">
+                  <p>Стоимость доставки по городу: 2 руб.</p>
+                  <input type="text" class="textInput" placeholder="Улица">
+                  
+                  <input type="text" class="numberInput" placeholder="Дом">
+                  
+                  <input type="text" class="numberInput" placeholder="Квартира">
+                  
+                  <input type="text" class="textInput" placeholder="Комментарий курьеру">
+                </div>
+                <li class="list__item">
+                  <input type="radio" class="radio-btn" name="choice" id="c-opt" />
+                  <label for="c-opt" class="label">Доставка ЕВРОПОЧТОЙ</label>
+                    </li>
+                <div class="europost">
+                  <p>Доставка осуществляется при помощи  <img src="./img/main/eur.png" alt="">ЕВРОПОЧТЫ. Товар будет
+                     доставлен в течении 3-ёх дней. Стоимость доставки высчитывается на основе 
+                     следующих <a href="https://evropochta.by/services/tariffs_ur/">тарифов.</a> 
+                  </p>
+                  <div class="deliveryInfo">
+                    <input type="text" class="textInput" placeholder="Город">
+                    <input type="text" class="textInput" placeholder="Улица">
+                  
+                    <input type="text" class="numberInput" placeholder="Дом">
+                    
+                    <input type="text" class="numberInput" placeholder="Квартира">
+                    
+                    <input type="text" class="textInput" placeholder="Комментарий курьеру">
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div class="pay">
+            <h2>Способ оплаты</h2>
+            <div class="container">
+              <ul class="list">
+                <li class="list__item">
+                  <input type="radio" class="radioPay" name="choice" id="d-opt" />
+                  <label for="d-opt" class="label">Наличными</label>
+                </li>
+                <div class="cash">
+                  <p>Оплата наличными в пункте самовывоза или курьеру при получении товара.</p>
+                </div>
+                <li class="list__item">
+                  <input type="radio" class="radioPay" name="choice" id="e-opt" />
+                  <label for="e-opt" class="label">Предоплата (картой онлайн)</label>
+                </li>
+                <div class="paymentCard">
+                  <p>Оплата онлайн банковской картой через систему bePaid.</p>
+                  <a href="./card.html">Ввести данные карты</a>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div class="yourOrder">
+            
+          </div>
+          
+        </div>
+        <div class="infoUser">
+          <h2>Личные данные</h2>
+          <div class="userData">
+            <input type="text" placeholder="ФИО">
+            <input type="email" placeholder="E-Mail">
+            <input type="tel" placeholder="Телефон">
+            
+          </div>
+          <div class="checkboxContent">
+            <label for="checkbox">Подписаться на новости</label>
+            <input type="checkbox" id="checkbox">
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer  class="footer">
+      <div class="address">
+          <a class="phone" href="tel:+375255005622">+375-25-500-5622</a>
+          <p>Гродно, Курчатова, 4</p>
+          <p>tomelovichs@gmail.com</p>
+      </div>
+      <p>© 2022 – 2023 ООО «КнигаБай» Все права защищены.</p>
+    </footer>
     <script src="./js/jquery-3.6.1.min.js"></script>
     <script src="./js/order.js"></script>
 </body>
