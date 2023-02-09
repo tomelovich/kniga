@@ -260,6 +260,9 @@ body {
     font-size: 22px;
     text-transform: capitalize;
 }
+#card-holder {
+    text-transform: uppercase;
+}
 .credit-card-box .card-expiration-date {
     text-align: right;
     left: auto;

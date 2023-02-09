@@ -43,16 +43,17 @@
         <p>Изображение: <input type="text" id="gimg" data-clue="Это простая подсказка без JavaScript" class="gimg"></p>
         <p>Порядок: <input type="text" id="gorder"></p>
         <p>Тип:
-            <select name="select" id="gtype" size="1">
-                <option>book</option>
-                <option>comics</option>
-                <option>manga</option>
+            <select name="select" class="select" id="gtype" size="1">
+                <option value="1">book</option>
+                <option value="2">manga</option>
+                <option value="3">comics</option>
+               
            </select>
         </p>
         <p>Количество товара: <input type="text" id="gnumb"></p>
         <input type="hidden" id="gid">
-        <button class="add-to-db">Добавить</button>
-        <button class="update">Обновить</button>
+        <button class="add-to-db">Добавить/Изменить</button>
+        
         <!-- d -->
 
     </main>

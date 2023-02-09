@@ -40,5 +40,8 @@ switch ($action) {
         case "authorization":
             authorization();
             break;        
+        case "addCart":
+            addCart();
+            break; 
 }
       

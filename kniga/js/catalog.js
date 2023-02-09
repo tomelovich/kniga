@@ -108,7 +108,7 @@ function mangaOut(data) {
     out +=`</header>`;
     out +=`</div>`;
   for (var key in data) {
-    if(data[key].type == "manga"){
+    if(data[key].type_id == 2){
       out +='<div class="catalog__item">'
       out +='<div class="catalog__product">'
         out +=`<img src="${data[key].img}" alt="" class="product__img">`;
@@ -172,7 +172,7 @@ function bookOut(data) {
     out +=`</header>`;
     out +=`</div>`;
   for (var key in data) {
-    if(data[key].type == "book"){
+    if(data[key].type_id == 1){
       out +='<div class="catalog__item">'
       out +='<div class="catalog__product">'
         out +=`<img src="${data[key].img}" alt="" class="product__img">`;
@@ -236,7 +236,7 @@ function comicsOut(data) {
     out +=`</header>`;
     out +=`</div>`;
   for (var key in data) {
-    if(data[key].type == "comics"){
+    if(data[key].type_id == 3){
       out +='<div class="catalog__item">'
       out +='<div class="catalog__product">'
         out +=`<img src="${data[key].img}" alt="" class="product__img">`;
@@ -286,6 +286,7 @@ function comicsOut(data) {
 function addToCart() {
     //добавляем товар в корзину
     var id = $(this).attr('data-id');
+    
     // console.log(id);
     if (cart[id]==undefined) {
         cart[id] = 1; //если в корзине нет товара - делаем равным 1
@@ -332,40 +333,41 @@ function laterShow() {
 }
 
 function showMiniCart() {
-    //показываю мини корзину
+  //показываю мини корзину
 
-  $.post(
-    "admin/core.php",           
-    { 
-      "action" : "loadBooks"      
-    },
-    function(data) {
-      var books = JSON.parse(data); 
-      var out = '';
-      let price;
-      let total = 0;
-      for (var id in cart) {   
-        price = cart[id] * books[id].price;   
-        out += '<div class="mini-cart-item">'
-          out += `<img src="${books[id].img}">`;
-          out += '<div class="mini-cart-item-description">'
-            out += `<h4><a href="books.html#${id}">${books[id].name}</a></h4>`;
-            out += `<p>${price} руб.</p>`;
-            out += '<div class="amount">'
-              out += `<button data-id="${id}" class="minus-books">-</button>`; 
-              out += `<p>${cart[id]}</p>`;
-              out += `<button data-id="${id}" class="plus-books">+</button>`;
-            out += '</div>';
-            out += `<button data-id="${id}" class="del-books">Удалить</button>`;
-          out += '</div>'
+
+$.post(
+  "admin/core.php",           
+  { 
+    "action" : "loadBooks"      
+  },
+  function(data) {
+    var books = JSON.parse(data); 
+    var out = '';
+    let price;
+    let total = 0;
+    for (var id in cart) {
+      price = cart[id] * books[id].price;   
+      out += '<div class="mini-cart-item">'
+        out += `<img src="${books[id].img}">`;
+        out += '<div class="mini-cart-item-description">'
+          out += `<h4><a href="books.html#${id}">${books[id].name}</a></h4>`;
+          out += `<p>${price} руб.</p>`;
+          out += '<div class="amount">'
+            out += `<button data-id="${id}" class="minus-books">-</button>`; 
+            out += `<p>${cart[id]}</p>`;
+            out += `<button data-id="${id}" class="plus-books">+</button>`;
+          out += '</div>';
+          out += `<button data-id="${id}" class="del-books">Удалить</button>`;
         out += '</div>'
-        total += price;
-      }
-      
-      out += '<div class="mini-cart-total">'
-          out += `<p>Итого: <b>${total} руб.</b></p>`;
-          out += `<a href="/order.html" class="checkout">Перейти к оформлению</a>`;
-        out += '</div>'
+      out += '</div>'
+      total += price;
+    }
+
+    out += '<div class="mini-cart-total">'
+        out += `<p>Итого: <b>${total} руб.</b></p>`;
+        out += `<a href="./" class="checkout">Перейти к оформлению</a>`;
+      out += '</div>'
       $('.mini-cart').html(out);
       $('.del-books').on('click', delBooks);
       $('.plus-books').on('click', addToCart);

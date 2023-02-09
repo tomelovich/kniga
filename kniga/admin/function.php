@@ -2,10 +2,10 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "knigaby";
+$dbname = "knigabynew";
 
 function connect(){
-    $conn = mysqli_connect("localhost", "root", "", "knigaby");
+    $conn = mysqli_connect("localhost", "root", "", "knigabynew");
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -30,15 +30,14 @@ function init(){
     mysqli_close($conn);
 }
 function loadManga(){
-    //вывожу список товаров
     $conn = connect();
-    $sql = "SELECT book_id, name FROM books WHERE type = 'manga' ";
+    $sql = "SELECT book_id, name FROM books WHERE type_id = 2";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         $out = array();
         while($row = mysqli_fetch_assoc($result)) {
-            $out[$row["id"]] = $row;
+            $out[$row["book_id"]] = $row;
         }
         echo json_encode($out);
     } else {
@@ -49,7 +48,7 @@ function loadManga(){
 function loadBook(){
     //вывожу список товаров
     $conn = connect();
-    $sql = "SELECT book_id, name FROM books WHERE type = 'book' ";
+    $sql = "SELECT book_id, name FROM books WHERE type_id = 1";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -66,7 +65,7 @@ function loadBook(){
 function loadComics(){
     //вывожу список товаров
     $conn = connect();
-    $sql = "SELECT book_id, name FROM books WHERE type = 'comics' ";
+    $sql = "SELECT book_id, name FROM books WHERE type_id = 3";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -98,17 +97,16 @@ function selectOneBooks(){
 }
 function updateBooks(){
     $conn = connect();
-    $id = $_POST['gid'];
+    $id = $_POST['id'];
     $name = $_POST['gname'];
     $author = $_POST['gauthor'];
     $price = $_POST['gprice'];
     $ord = $_POST['gorder'];
     $descr = $_POST['gdescr'];
     $img = $_POST['gimg'];
-    $type = $_POST['gtype'];
+    $type_id = $_POST['gtype'];
     $numb = $_POST['gnumb'];
-  //  $sql = "REPLACE (name = '$name', author = '$author', price = '$price', ord = '$ord', description = '$descr', img = '$img', type = '$type', number = '$type' ) FROM books WHERE book_id='$id' ";
-    $sql = "UPDATE books SET name = '$name', author = '$author', price = '$price', ord = '$ord', description = '$descr', img = '$img', type = '$type' number_books = '$numb' WHERE book_id='$id' ";
+    $sql = "UPDATE books SET name = '$name', author = '$author', description = '$descr', price = '$price', ord = '$ord', img = '$img', number_books = '$numb', type_id = '$type_id' WHERE book_id='$id' ";
     if ($conn->query($sql) === TRUE) {
         echo "1";
     } else {
@@ -125,9 +123,9 @@ function newBooks(){
     $ord = $_POST['gorder'];
     $descr = $_POST['gdescr'];
     $img = $_POST['gimg'];
-    $type = $_POST['gtype'];
+    $type_id = $_POST['gtype'];
     $numb = $_POST['gnumb'];
-    $sql = "INSERT INTO books (name, author, price, ord, description, img, type, number_books) VALUES ('$name', '$author', '$price', '$ord', '$descr','$img', '$type', '$numb')";
+    $sql = "INSERT INTO books (name, author, price, ord, description, img, number_books, type_id) VALUES ('$name', '$author', '$price', '$ord', '$descr','$img', '$numb', '$type_id')";
 
     if (mysqli_query($conn, $sql)) {
     echo "Успешно создана новая запись";
@@ -181,6 +179,40 @@ function loadSingleBooks() {
     }
     mysqli_close($conn);
 ;}
+
+function addCart() {
+    $conn = connect();
+    $cart = $_POST['cartUser'];
+    $cartUser = (json_decode($cart, true));
+    $filename = 'php.txt';
+    $text = serialize($cartUser); 
+    file_put_contents($filename, $text);
+    foreach ($cartUser as &$value) {
+        $book_id = $cartUser[i];
+        $quanity = $cartUser[i].value;
+        $sql = "INSERT books_buying(book_id, buy_id, quanity) VALUES ($book_id, 1, $quanity) ";
+       
+        if(mysqli_query($conn, $sql)){
+            echo "Данные успешно добавлены";
+        } else{
+            echo "Ошибка: " . mysqli_error($conn);
+        }
+        
+    }
+    mysqli_close($conn);
+}
+/*
+
+
+*/
+
+
+
+
+
+
+
+
 function registration(){
     $conn = connect();
     $email = $_POST['email'];

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Оформление заказа</title>
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/order.css">
 </head>
 <body>
@@ -54,7 +55,7 @@
                 </li>
                 <div class="courier">
                   <p>Стоимость доставки по городу: 2 руб.</p>
-                  <input type="text" class="textInput" placeholder="Улица">
+                  <input type="text" class="textInput" id="address" name="address" placeholder="Улица">
                   
                   <input type="text" class="numberInput" placeholder="Дом">
                   
@@ -72,14 +73,11 @@
                      следующих <a href="https://evropochta.by/services/tariffs_ur/">тарифов.</a> 
                   </p>
                   <div class="deliveryInfo">
-                    <input type="text" class="textInput" placeholder="Город">
-                    <input type="text" class="textInput" placeholder="Улица">
+                    <input type="text" class="textInput" id="city" placeholder="Город и улица">
                   
                     <input type="text" class="numberInput" placeholder="Дом">
                     
                     <input type="text" class="numberInput" placeholder="Квартира">
-                    
-                    <input type="text" class="textInput" placeholder="Комментарий курьеру">
                   </div>
                 </div>
               </ul>
@@ -115,8 +113,8 @@
         <div class="infoUser">
           <h2>Личные данные</h2>
           <div class="userData">
-            <input type="text" placeholder="ФИО">
-            <input type="email" placeholder="E-Mail">
+            <input type="text" id="fullname" placeholder="ФИО">
+            <input type="email" id="email" placeholder="E-Mail">
             <input type="tel" placeholder="Телефон">
             
           </div>
@@ -136,6 +134,7 @@
       <p>© 2022 – 2023 ООО «КнигаБай» Все права защищены.</p>
     </footer>
     <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
     <script src="./js/order.js"></script>
 </body>
 </html>
