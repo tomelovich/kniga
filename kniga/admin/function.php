@@ -244,5 +244,6 @@ function authorization(){
 		}
     mysqli_close($conn);
 }
+function search() {}
 
 

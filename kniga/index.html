@@ -23,16 +23,18 @@
                 <a href="#info">О магазине</a>
             </div>
             
-            <div class="box">
-                <div class="container-4">
-                    <input type="search" id="search" placeholder="Поиск...">
-                    <button id="icon" class="icon">
-                        &#10140;
-                    </button>
+            <!-- <form class="search" method="post" action="search.php?go"  id="searchform">  -->
+                <div class="search">
+                    <input id="search_book" type="text" autocomplete="off">
+                    <di class="search_book">
+                        
+
+                    </di>
                 </div>
-            </div>
+                
+              <!-- </form>  -->
             <a href="./favorites.html" class="icons"><img src="./img/header/ponrav.png" alt="like"></a>
-            <a href="#" class="icons myLinkModal" ><img src="./img/header/user.png" alt="user profile"></a>
+            <a href="./user/login.php" class="icons" ><img src="./img/header/user.png" alt="user profile"></a>
             <a href="./cart.html" class="icons basket"><img src="./img/header/korzina.png" alt="basket"></a>
         </nav>
         
@@ -84,38 +86,7 @@
                 
             </div>
         </section>
-        <div id="registrationModal">
-            <div class="header">
-                <h1 class="reg">Авторизация</h1>
-              </div>
-              
-              <div class="logo"><a href="/index.html"><img src="./img/header/логотип.svg" class="logo" alt="logo"></a></div>
-              
-              <form id="registration-form">
-                <input type="email" name="email" id="email" placeholder=" Ваш E-mail">
-                <input type="password" name="pass" id="epassword" placeholder="Пароль">
-                <input type="password" name="repass" id="erepassword" placeholder="Повторите пароль">
-                <a href="#" class="login-btn" id="signup-btn">Зарегистрироваться</a>
-              </form>
-            
-              <form id="login-form">
-                <input type="email" name="email" id="logEmail" placeholder="Ваш E-mail">
-                <input type="password" name="pass" id="logEpassword" placeholder="Пароль">
-                <a href="#" class="login-btn" id="signin-btn">Войти</a>
-              </form>
-              
-              <form id="fpass-form">
-                <input type="text" name="forgotten" placeholder="Ваш E-mail">
-                <a href="#" class="login-btn" id="getpass-btn">Восстановить</a>
-              </form>
-              
-              <div class="other-options">
-                <div class="option" id="newUser"><p class="option-text">Новый пользователь</p></div>
-                <div class="option" id="fPass"><p class="option-text"> Не помню пароль</p></div>
-              </div>
-            <span id="myModal__close" class="close">✕</span>
-        </div>
-        <div id="myOverlay"></div>
+        
         <section class="payment-delivery">
             <a href="" id="delivery"></a>
             <h1 class="reg">Оплата и доставка</h1>

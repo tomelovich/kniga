@@ -5,13 +5,13 @@ body {
      }
  
      a {
-    color: #f58220;
+    color: #182450;
   font-weight: 400;
      }
      
      span {
     font-weight: 300;
-    color: #f58220;
+    color: #182450;
      }
  
      .mlogin {
@@ -29,7 +29,7 @@ body {
      color: #fff;
     text-align: center;
   width: 650px;
-  background: #f58220;
+  background: #182450;
      }
  
      .regtext {
@@ -93,21 +93,21 @@ body {
      }
      
      .container form .input:focus {
-     border: 1px solid #f58220;
-  -webkit-box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
- -moz-box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
-  box-shadow: 0 0 3px 0 rgba(245,130,32,0.75);
+     border: 1px solid #182450;
+  -webkit-box-shadow: 0 0 3px 0 #182450;
+ -moz-box-shadow: 0 0 3px 0 #182450;
+  box-shadow: 0 0 3px 0 #182450;
      }
      
      /*= КНОПКИ
      --------------------------------------------------------*/
      
      .button{
-     border: solid 1px #da7c0c;
-     background: #f78d1d;
-     background: -webkit-gradient(linear, left top, leftbottom, from(#faa51a), to(#f47a20));
-     background: -moz-linear-gradient(top,  #faa51a, #f47a20);
-   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+     border: solid 1px #182450;
+     background: #182450;
+     background: -webkit-gradient(linear, left top, leftbottom, from(#182450), to(#182450));
+     background: -moz-linear-gradient(top,  #182450, #182450);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#182450', endColorstr='#182450');
     color: #fff;
      padding: 7px 12px;
      -webkit-border-radius:4px;
@@ -118,10 +118,11 @@ body {
      }
      
      .button:hover{
-     background: #f47c20;
-   background: -webkit-gradient(linear, left top, leftbottom, from(#f88e11), to(#f06015));
-     background: -moz-linear-gradient(top,  #f88e11, #f06015);
-   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+     background: red;
+     transition: 0.4s;
+   background: -webkit-gradient(linear, left top, leftbottom, from(#182450), to(#182450));
+     background: -moz-linear-gradient(top,  #182450, #182450);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#182450', endColorstr='#182450;');
      }
      /*= ПОДВАЛ
      --------------------------------------------------------*/
